@@ -2,7 +2,7 @@ import {FirestoreAdapter} from '@auth/firebase-adapter'
 import {NextAuthOptions} from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 
-import {adminDb} from './firbase-admin'
+import {adminAuth, adminDb} from './firbase-admin'
 
 export const authOptions: NextAuthOptions = {
 	providers: [
@@ -15,6 +15,9 @@ export const authOptions: NextAuthOptions = {
 		session: async ({session, token}) => {
 			if (session?.user) {
 				session.user.id = token.sub
+
+				const firebaseToken = await adminAuth.createCustomToken(token.sub!)
+				session.firebaseToken = firebaseToken
 			}
 			return session
 		},

@@ -5,7 +5,7 @@ import {getFunctions} from 'firebase/functions'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-	apiKey: process.env.FIREBASE_API_KEY,
+	apiKey: 'AIzaSyA9rHBYJz1k3iO7pUI8DlheIklTsdkPV6A',
 	authDomain: process.env.FIREBASE_AUTH_DOMAIN,
 	projectId: process.env.FIREBASE_PROJECT_ID,
 	storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
